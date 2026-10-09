@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOMA chip host</title>
+<style>
+  :root { color-scheme: light dark; --bg: #f7f4ee; --fg: #1d1d1d; --muted: #666; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #15181f; --fg: #eceff4; --muted: #9aa3b2; } }
+  body { margin: 0; padding: 32px 16px; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; }
+  main { max-width: 640px; margin: 0 auto; }
+  code { font-size: 14px; }
+  p.muted { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <h1>SOMA chip host</h1>
+  <p>This site serves published versions of the SOMA feedback chip. Each SOMA site loads the chip through its own <code>/soma-chip/</code> path and falls back to its own copy when this host cannot answer.</p>
+  <ul id="channels"><li>Loading channels…</li></ul>
+  <p class="muted">Source and publishing rules: github.com/eldrgeek/soma-chip</p>
+</main>
+<script>
+  (async () => {
+    const list = document.getElementById('channels');
+    list.textContent = '';
+    for (const name of ['stable', 'beta']) {
+      const li = document.createElement('li');
+      try {
+        const m = await (await fetch('channels/' + name + '.json', { cache: 'no-cache' })).json();
+        li.textContent = name + ': ' + m.version;
+      } catch (_) { li.textContent = name + ': not published'; }
+      list.appendChild(li);
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "version": "4.4.0",
+  "soma_commit": "920d63ab46b655e20608a1b6217bd8f7eb831d81",
+  "published_at": "2026-10-09T21:12:00.777Z",
+  "passed": true,
+  "results": [
+    {
+      "check": "drag-check.mjs",
+      "exit": 0,
+      "summary": "23/23 checks passed"
+    },
+    {
+      "check": "page-text-check.mjs",
+      "exit": 0,
+      "summary": "12/12 checks passed"
+    }
+  ]
+}

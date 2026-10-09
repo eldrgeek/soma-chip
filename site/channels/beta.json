@@ -1,0 +1,9 @@
+{
+  "version": "4.4.0",
+  "js": "v/4.4.0/soma-feedback.js",
+  "css": "v/4.4.0/soma-feedback.css",
+  "sri": {
+    "js": "sha256-5uRW7zNoI5J4acV4blYLQOwIQ0DC3ui9Pd4NT6S2z1Q=",
+    "css": "sha256-+rDSbyjjkBvJAfeccaM6Wpo5wNMT3zJ5gRPFzmz0zOc="
+  }
+}

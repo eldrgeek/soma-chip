@@ -1,0 +1,24 @@
+# soma-chip — central host for the SOMA feedback chip. Static files only.
+# Sites reach it through their own /soma-chip/* proxy rule, so the chip stays
+# same-origin for them; see README.md.
+[build]
+  publish = "site"
+  command = ""
+
+# A published version never changes (scripts/publish.mjs refuses), so its files
+# can be cached for a year.
+[[headers]]
+  for = "/v/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+    X-Content-Type-Options = "nosniff"
+
+# Channels move. One minute is how long an upgrade or a rollback takes to reach
+# a returning visitor.
+[[headers]]
+  for = "/channels/*"
+  [headers.values]
+    Cache-Control = "public, max-age=60, must-revalidate"
+    Access-Control-Allow-Origin = "*"
+    X-Content-Type-Options = "nosniff"
