@@ -57,5 +57,6 @@ That command confirms every channel points at files that exist and match their h
 ## Sites using it
 
 - PlayMaker, from 2026-10-09 (bead pm-bjcp).
+- ekcoSYSTEM "Your AI Partner" preview (ekco-ai-partner.netlify.app), from 2026-10-12 (bead es-160). Mounted with `data-no-google` until that origin is registered on the chip's Google client. Its `netlify.toml` proxy rule was not applied, so the rule also ships in `dist/_redirects`; check `window.somaChipLoader.source` is `"central"` after adopting.
 
 Written 2026-10-09 by Mike Wolf and Claude Opus 5.5 (CCc).
